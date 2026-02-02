@@ -78,24 +78,33 @@
           You don't want to make Chef Anton mad, do you?
         </div>
         <i>Discount expires: 2/25/2025</i><br />
-            <i class="bi bi-receipt"></i> <a href="#" class="discount" data-product="Chef Anton's Italian Seasoning">Discount Code</a>
+            <i class="bi bi-receipt"></i> <a href="#" class="discount" data-product="Chef Anton's Italian Seasoning" data-title="Tis the seasoning" data-discount="2026">Discount Code</a>
       </div>
-      <div class="col">
-        Col 2
+        <div class="col px-2 py-4">
+        <h3>Sip happens</h3>
+        <div class="mb-4">
+         Spill-proof savings! Take 15% off Barista Bella’s Cold Brew Concentrate and keep the coffee jitters, not the bill, high.
+        </div>
+        <i>Discount expires: 3/15/2025</i><br />
+            <i class="bi bi-receipt"></i> <a href="#" class="discount" data-product="Barista Bella’s Cold Brew Concentrate" data-title="Sip happens" data-discount="4200">Discount Code</a>
       </div>
-      <div class="col">
-        Col 3
+      <div class="col px-2 py-4">
+        <h3>Grate expectations</h3>
+        <div class="mb-4">
+Say cheese! Shave 10% off Monsieur Marco’s Five‑Cheese Fondue Kit and turn any night into a fondue‑for‑all.        </div>
+        <i>Discount expires: 4/01/2025</i><br />
+            <i class="bi bi-receipt"></i> <a href="#" class="discount" data-product="Monsieur Marco’s Five‑Cheese Fondue Kit" data-title="Grate expectations" data-discount="1987">Discount Code</a>
       </div>
     </div>
     <!-- toast -->
   <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
       <div class="toast-header">
         <strong class="me-auto" id="product">Product</strong>
-        <small class="text-body-secondary">discount title</small>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        <small class="text-body-secondary" id="title">discount title</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast"  aria-label="Close"></button>
       </div>
-      <div class="toast-body">
+      <div class="toast-body" id="discount">
         Discount Code: 1234
       </div>
     </div>
