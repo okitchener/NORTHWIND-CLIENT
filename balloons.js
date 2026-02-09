@@ -24,9 +24,20 @@ document.addEventListener("DOMContentLoaded", function() {
         elem.classList.add("animate__animated", "animate__bounceInDown") :
         elem.classList.add("animate__animated", "animate__bounceOutUp");
     }
+
   });
+
+window.toggleAll = function(source) {
+  let checkboxes = document.querySelectorAll('.form-check-input');
+  for (var i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].checked = source.checked;
+    // dispatch a change event so the existing change listener runs and updates the images
+    checkboxes[i].dispatchEvent(new Event('change', { bubbles: true }));
+  }
+}
+
   //create a toast when submit is clicked with no balloons checkboxes selected
-  document.getElementById('submit-btn').addEventListener('click', function(e) {
+  document.getElementById('submit').addEventListener('click', function(e) {
     e.preventDefault();
     const checked = document.querySelectorAll('.form-check-input:checked');
     if (checked.length === 0) {
