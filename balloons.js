@@ -6,11 +6,25 @@ document.addEventListener("DOMContentLoaded", function() {
     autohide: true,
     format: 'MM-dd'
   });
-//Randomize attention seeker upon page load
-    const randomizer = document.querySelector('.randomizer');
-    const animations = ['animate__bounce', 'animate__flash', 'animate__pulse', 'animate__rubberBand', 'animate__shakeX', 'animate__headShake', 'animate__swing', 'animate__tada', 'animate__wobble', 'animate__jello'];
-    const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
-    randomizer.classList.add(randomAnimation);
+  //Randomize attention seeker upon page load
+  const randomizer = document.querySelector('.randomizer');
+  const animations = ['animate__bounce', 'animate__flash', 'animate__pulse', 'animate__rubberBand', 'animate__shakeX', 'animate__headShake', 'animate__swing', 'animate__tada', 'animate__wobble', 'animate__jello'];
+  const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
+  randomizer.classList.add(randomAnimation);
+
+  const h1 = document.getElementById('title');
+  const checkboxes = document.getElementsByClassName('form-check-input');
+
+  Array.from(checkboxes).forEach(cb => {
+    const color = cb.dataset.color;
+
+    cb.addEventListener('mouseover', function() {
+      h1.style.color = color;
+    });
+
+    cb.addEventListener('mouseout', function() {
+      h1.style.color = '';
+    });
 
     // uncheck all boxes by default (Firefox)
   document.querySelectorAll('.form-check-input').forEach(c => c.checked = false);
@@ -19,13 +33,15 @@ document.addEventListener("DOMContentLoaded", function() {
     if (e.target.classList.contains('form-check-input')) {
             const elem = document.getElementById(e.target.id + 'Img');
       elem.style.visibility = "visible";
-       elem.classList.remove("animate__animated", "animate__bounceInDown", "animate__bounceOutUp");
+      elem.classList.remove("animate__animated", "animate__bounceInDown", "animate__bounceOutUp");
       e.target.checked ?
         elem.classList.add("animate__animated", "animate__bounceInDown") :
         elem.classList.add("animate__animated", "animate__bounceOutUp");
     }
 
   });
+
+});
 
 window.toggleAll = function(source) {
   let checkboxes = document.querySelectorAll('.form-check-input');
