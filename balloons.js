@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const animations = ['animate__bounce', 'animate__flash', 'animate__pulse', 'animate__rubberBand', 'animate__shakeX', 'animate__headShake', 'animate__swing', 'animate__tada', 'animate__wobble', 'animate__jello'];
     const randomAnimation = animations[Math.floor(Math.random() * animations.length)];
     randomizer.classList.add(randomAnimation);
+
     // uncheck all boxes by default (Firefox)
   document.querySelectorAll('.form-check-input').forEach(c => c.checked = false);
     // event listener for check/uncheck
@@ -22,6 +23,16 @@ document.addEventListener("DOMContentLoaded", function() {
       e.target.checked ?
         elem.classList.add("animate__animated", "animate__bounceInDown") :
         elem.classList.add("animate__animated", "animate__bounceOutUp");
+    }
+  });
+  //create a toast when submit is clicked with no balloons checkboxes selected
+  document.getElementById('submit-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    const checked = document.querySelectorAll('.form-check-input:checked');
+    if (checked.length === 0) {
+      const toast = document.getElementById('toast');
+      const bsToast = new bootstrap.Toast(toast);
+      bsToast.show();
     }
   });
 });
